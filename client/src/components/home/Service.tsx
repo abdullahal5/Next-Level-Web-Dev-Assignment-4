@@ -28,13 +28,15 @@ const Service = () => {
   ];
   return (
     <div>
-      <div className="flex items-center justify-center py-10 gap-8">
+      <div className="flex lg:flex-row md:flex-row flex-col items-center justify-center gap-8">
         {services.map((item, index) => (
           <div key={index}>
             <div className="border rounded-xl w-44 h-32 p-4 hover:scale-110 hover:bg-[#44ac69] hover:text-white space-y-1 duration-300 cursor-pointer group">
               <span className="text-4xl">{createElement(item.icon)}</span>
               <p className="font-[600] text-[14px]">{item.name}</p>
-              <p className="text-xs text-[#7A7A7A] group-hover:text-white duration-300">{item.tag}</p>
+              <p className="text-xs text-[#7A7A7A] group-hover:text-white duration-300">
+                {item.tag}
+              </p>
             </div>
           </div>
         ))}

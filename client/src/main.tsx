@@ -6,7 +6,7 @@ import router from "./router/Router";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <div className="font-openSans">
+    <div className="font-robotoo">
       <RouterProvider router={router} />
     </div>
   </React.StrictMode>

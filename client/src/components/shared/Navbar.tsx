@@ -11,11 +11,11 @@ const Navbar = () => {
   ];
   return (
     <div className="bg-[#4c9c64] h-20 text-white">
-      <div className="flex items-center justify-between h-full max-w-[1300px] mx-auto">
+      <div className="flex items-center justify-between h-full max-w-[1300px] mx-auto lg:px-0 px-5">
         <div>
           <h1 className="text-2xl">Logo</h1>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="lg:flex md:flex hidden items-center gap-6">
           {links.map((item, index) => (
             <Link to={item.href} key={index}>
               <p className="font-semibold">{item.name}</p>

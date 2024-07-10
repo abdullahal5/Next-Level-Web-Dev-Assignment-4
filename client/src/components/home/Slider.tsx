@@ -48,21 +48,21 @@ const Slider = () => {
     setCurrentIndex(slideIndex);
   };
 
-   useEffect(() => {
-     const interval = setInterval(() => {
-       nextSlide();
-     }, 5000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide();
+    }, 5000);
 
-     return () => clearInterval(interval);
-   }, [currentIndex]);
+    return () => clearInterval(interval);
+  }, [currentIndex]);
 
   const { name, description, image } = slides[currentIndex];
 
   return (
-    <div className="py-5 w-full h-[400px] relative group">
+    <div className="py-5 w-full lg:h-[400px] md:h-[400px] h-[600px] relative group">
       <div className="w-full bg-[#ccf4d8] h-full rounded-2xl bg-center bg-cover duration-500">
-        <div className="flex items-center justify-around h-full px-10 gap-10">
-          <div className="space-y-3 pl-8 w-[40%]">
+        <div className="flex lg:flex-row md:flex-row flex-col items-center justify-around h-full lg:px-10 md:px-10 gap-10 lg:pt-0 md:pt-0 pt-10">
+          <div className="space-y-3 lg:pl-8 md:pl-8 lg:w-[40%] md:w-[40%] lg:text-start md:text-start text-center">
             <h1 className="text-4xl font-semibold">{name}</h1>
             <p>{description}</p>
             <button className="px-4 py-2 rounded-md text-white bg-[#4c9c64]">
@@ -70,7 +70,11 @@ const Slider = () => {
             </button>
           </div>
           <div className="flex-1">
-            <img src={image} className="w-full h-[400px]" alt={name} />
+            <img
+              src={image}
+              className="w-full lg:h-[400px] md:h-[400px] drop-shadow-2xl"
+              alt={name}
+            />
           </div>
         </div>
       </div>
