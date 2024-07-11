@@ -12,8 +12,13 @@ const Navbar = () => {
   return (
     <div className="bg-[#4c9c64] h-20 text-white">
       <div className="flex items-center justify-between h-full max-w-[1300px] mx-auto lg:px-0 px-5">
-        <div>
-          <h1 className="text-2xl">Logo</h1>
+        <div className="flex items-center">
+          <img
+            src="https://i.ibb.co/7bKcJdH/download-removebg-preview-5.png"
+            alt=""
+            className="w-20"
+          />
+          <h1 className="text-2xl">KeyNest</h1>
         </div>
         <div className="lg:flex md:flex hidden items-center gap-6">
           {links.map((item, index) => (

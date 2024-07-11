@@ -11,14 +11,15 @@ const Footer = () => {
       <hr className="my-10 dark:border-neutral-600" />
       <div className="flex lg:flex-row md:flex-row flex-col lg:items-start md:items-start items-center justify-around gap-5 text-zinc-600">
         <div className="w-[300px] dark:text-zinc-300 lg:text-start md:text-start text-center">
-          <div className="lg:w-auto md:w-auto w-full">
+          <div className="lg:w-auto md:w-auto w-full flex items-center">
             <img
-              src="https://i.ibb.co/5T1r5B6/1bffa484777281-5d6786a598010-removebg-preview.png"
+              src="https://i.ibb.co/7bKcJdH/download-removebg-preview-5.png"
               width={60}
               height={60}
               className="lg:m-0 md:m-0 mx-auto"
               alt="logo"
             />
+            <h1 className="text-xl">KeyNest</h1>
           </div>
           <p className="text-md">
             Skilled MERN Stack developer passionate about crafting seamless user
@@ -43,16 +44,16 @@ const Footer = () => {
             </Link>
             <Link
               className="hover:text-violet-500 hover:underline border-violet-500"
-              to="/projects"
+              to="/contact"
             >
-              Projects
+              Contact
             </Link>
-            {/* <Link
+            <Link
               className="hover:text-violet-500 hover:underline border-violet-500"
-              to="/achievements"
+              to="/dashboard"
             >
-              Achievements
-            </Link> */}
+              Dashboard
+            </Link>
           </div>
         </div>
         <div className="dark:text-zinc-300 text-center">
