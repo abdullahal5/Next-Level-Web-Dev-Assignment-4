@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        robotoo: ["Roboto", "sans - serif"],
+        grotesk: ["Hanken Grotesk", "sans-serif"],
       },
     },
   },

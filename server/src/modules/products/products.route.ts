@@ -11,4 +11,11 @@ router.post(
   ProductController.CreateProduct
 );
 
+router.get(
+  "/products",
+  ProductController.GetAllProduct
+);
+
+router.get("/product/:id", ProductController.GetSingleProduct);
+
 export const ProductRoute = router;

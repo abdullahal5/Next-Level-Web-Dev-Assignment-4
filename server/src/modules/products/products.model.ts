@@ -35,3 +35,4 @@ const prodcutSchema = new Schema<TProduct>(
   { timestamps: true }
 );
 export const ProductModel = model<TProduct>("Product", prodcutSchema);
+
