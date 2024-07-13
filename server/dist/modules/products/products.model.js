@@ -11,9 +11,10 @@ const prodcutSchema = new mongoose_1.Schema({
         type: String,
         required: true,
     },
-    // images: {
-    //   type: [String]
-    // },
+    description: {
+        type: String,
+        required: true,
+    },
     brand: {
         type: String,
         required: true,
