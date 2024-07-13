@@ -7,11 +7,17 @@ import Contact from "../pages/Contact/Contact";
 import Dashboard from "../pages/Dashboard/Dashboard";
 import ProductDetails from "../pages/Details/ProductDetails";
 import Cart from "../pages/Cart/Cart";
+import ErrorPage from "../pages/ErrorPage";
+import Checkout from "../pages/Checkout/Checkout";
+import CashOnDelivery from "../pages/payment/cashondelivery/CashOnDelivery";
+import Stripe from "../pages/payment/stripe/Stripe";
+import Success from "../pages/success/Success";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -40,6 +46,22 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
+      },
+      {
+        path: "checkout/cashondelivery",
+        element: <CashOnDelivery />,
+      },
+      {
+        path: "checkout/stripe",
+        element: <Stripe />,
+      },
+      {
+        path: "success",
+        element: <Success />,
       },
     ],
   },

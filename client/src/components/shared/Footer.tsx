@@ -4,7 +4,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
-    const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=abdullahalfahin183@gmail.com&su=Subject&body=Body`;
+  const mailtoLink = `https://mail.google.com/mail/?view=cm&fs=1&to=abdullahalfahin183@gmail.com&su=Subject&body=Body`;
 
   return (
     <div className="max-w-[1200px] mx-auto">
@@ -22,9 +22,9 @@ const Footer = () => {
             <h1 className="text-xl">KeyNest</h1>
           </div>
           <p className="text-md">
-            Skilled MERN Stack developer passionate about crafting seamless user
-            experiences and scalable solutions. Committed to continuous learning
-            and innovation in web development.
+            KeyNest is an innovative keyboard e-commerce platform offering a
+            curated selection of premium keyboards for enthusiasts and
+            professionals.
           </p>
         </div>
         <div className="dark:text-zinc-300">

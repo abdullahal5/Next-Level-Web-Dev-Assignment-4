@@ -7,12 +7,11 @@ import {
   increaseQuantity,
   removeCart,
 } from "../../reudux/features/cart/cartSlice";
+import { Link } from "react-router-dom";
 
 const Cart = () => {
   const cart = useAppSelector((state: RootState) => state.cart);
   const dispatch = useAppDispatch();
-
-  console.log(cart);
 
   const handleIncreaseQuantity = (id: string) => {
     dispatch(increaseQuantity(id));
@@ -27,6 +26,10 @@ const Cart = () => {
   };
 
   const totalPrice = cart.reduce((acc, item) => acc + item.orderPrice, 0);
+
+  const isAnyProductZero = cart.some((item) => item.quantity === 0);
+
+  console.log(isAnyProductZero)
 
   return (
     <div className="flex items-start gap-5 my-5">
@@ -160,12 +163,14 @@ const Cart = () => {
           </p>
         </div>
         <div className="text-center">
-          <button
-            disabled={cart.length === 0}
-            className="text-center border rounded-md w-full py-2 hover:text-[#4c9c64] text-white bg-[#4c9c64] hover:bg-white duration-300 border-[#4c9c64] font-semibold mt-4 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:border-gray-400 disabled:text-white"
-          >
-            Checkout
-          </button>
+          <Link to={"/checkout"}>
+            <button
+              disabled={cart.length === 0 || isAnyProductZero}
+              className="text-center border rounded-md w-full py-2 hover:text-[#4c9c64] text-white bg-[#4c9c64] hover:bg-white duration-300 border-[#4c9c64] font-semibold mt-4 disabled:cursor-not-allowed disabled:bg-gray-400 disabled:border-gray-400 disabled:text-white"
+            >
+              Checkout
+            </button>
+          </Link>
         </div>
       </div>
     </div>
