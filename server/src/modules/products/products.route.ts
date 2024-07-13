@@ -11,11 +11,12 @@ router.post(
   ProductController.CreateProduct
 );
 
-router.get(
-  "/products",
-  ProductController.GetAllProduct
-);
+router.get("/products", ProductController.GetAllProduct);
 
-router.get("/product/:id", ProductController.GetSingleProduct);
+router.get("/products/:id", ProductController.GetSingleProduct);
+
+router.delete("/products/:id", ProductController.deleteProduct);
+
+router.put("/products/:id", ProductController.updateProduct);
 
 export const ProductRoute = router;

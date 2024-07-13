@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        grotesk: ["Hanken Grotesk", "sans-serif"],
+        grotesk: ["Outfit", "sans - serif"],
       },
     },
   },

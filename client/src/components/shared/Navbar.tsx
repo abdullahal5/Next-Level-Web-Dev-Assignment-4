@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import { MdShoppingCart } from "react-icons/md";
+import { RootState } from "../../reudux/store";
+import { useAppSelector } from "../../reudux/hooks";
 
 const Navbar = () => {
+const  cart  = useAppSelector((state: RootState) => state.cart);
+
   const links = [
     { name: "Home", href: "/" },
     { name: "Product", href: "/products" },
@@ -28,12 +32,14 @@ const Navbar = () => {
           ))}
         </div>
         <div className=" hover:bg-black/20 rounded-full p-3 duration-300 cursor-pointer">
-          <div className="relative">
-            <MdShoppingCart fontSize={"1.5rem"} className="text-gray-800" />{" "}
-            <span className="absolute -top-3 -right-4 text-xs leading-none rounded-full bg-white border text-black px-2 py-1">
-              4
-            </span>
-          </div>
+          <Link to={'/cart'}>
+            <div className="relative">
+              <MdShoppingCart fontSize={"1.5rem"} className="text-gray-800" />{" "}
+              <span className="absolute -top-3 -right-4 text-xs leading-none rounded-full bg-white border text-black px-2 py-1">
+                {cart?.length}
+              </span>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

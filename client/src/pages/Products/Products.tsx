@@ -24,10 +24,13 @@ const debounce = (func: any, wait: number) => {
 
 const Products = () => {
   const [searchValue, setSearchValue] = useState<string>("");
-  const [priceValue, setPriceValue] = useState<string>("");
+  const [sort, setSort] = useState<string>("");
+  const [price, setPrice] = useState<number>(0);
+
   const { data, isLoading } = useGetAllProductsQuery({
     search: searchValue,
-    priceValue: priceValue,
+    sort: sort,
+    price: price.toString(),
   });
 
   const debouncedSearch = useCallback(
@@ -37,17 +40,24 @@ const Products = () => {
     []
   );
 
-  const handleGetSearchValue = (value: string) => {
-    debouncedSearch(value);
+  const handleGetSearchValue = (e: React.ChangeEvent<HTMLInputElement>) => {
+    debouncedSearch(e.target.value);
   };
 
   const handleSortChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const selectedPriceValue = e.target.value;
-    setPriceValue(selectedPriceValue);
+    setSort(selectedPriceValue);
+  };
 
-    // Perform the query with the updated price sorting value
-    // This depends on your useGetAllProductsQuery hook implementation
-    // Ensure it supports dynamically changing priceValue to trigger a refetch
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selectedPrice = e.target.value;
+    setPrice(parseInt(selectedPrice));
+  };
+
+  const handleClearFilters = () => {
+    setSearchValue("");
+    setSort("");
+    setPrice(0);
   };
 
   return (
@@ -69,6 +79,7 @@ const Products = () => {
                 <h1 className="text-3xl text-center ">Filter</h1>
                 <button
                   type="reset"
+                  onClick={handleClearFilters}
                   className="bg-gray-100 px-2 py-1 border rounded-lg cursor-pointer text-sm"
                 >
                   Clear
@@ -83,7 +94,7 @@ const Products = () => {
                     placeholder="Search product here..."
                     name="search"
                     onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                      handleGetSearchValue(e.target.value)
+                      handleGetSearchValue(e)
                     }
                     required
                   />
@@ -96,15 +107,17 @@ const Products = () => {
                   className="w-full"
                   min={0}
                   id="stipend"
-                  max={10000}
+                  onChange={handlePriceChange}
+                  value={price}
+                  max={200}
                 />
                 <div className="flex justify-between mt-1 text-gray-600">
                   <span>$0</span>
-                  <span>$2k</span>
-                  <span>$4k</span>
-                  <span>$6k</span>
-                  <span>$8k</span>
-                  <span>$10k</span>
+                  <span>$10</span>
+                  <span>$50</span>
+                  <span>$80</span>
+                  <span>$120</span>
+                  <span>$200</span>
                 </div>
               </div>
               <div>
@@ -115,6 +128,7 @@ const Products = () => {
                       type="radio"
                       value="priceLowToHigh"
                       name="price-sort"
+                      checked={sort === "priceLowToHigh"}
                       onChange={handleSortChange}
                     />{" "}
                     Low to High
@@ -124,6 +138,7 @@ const Products = () => {
                       type="radio"
                       value="priceHighToLow"
                       name="price-sort"
+                      checked={sort === "priceHighToLow"}
                       onChange={handleSortChange}
                     />{" "}
                     High to Low

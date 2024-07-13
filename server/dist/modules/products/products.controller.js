@@ -27,7 +27,7 @@ const CreateProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, 
     });
 }));
 const GetAllProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield products_service_1.ProductService.GetAllProductFromDB(req.query.search, req.query.sort);
+    const result = yield products_service_1.ProductService.GetAllProductFromDB(req.query.search, req.query.sort, req.query.price);
     (0, sendResponse_1.default)(res, {
         statusCode: http_status_1.default.OK,
         success: true,
@@ -44,8 +44,28 @@ const GetSingleProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 
         data: result,
     });
 }));
+const updateProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield products_service_1.ProductService.updateProductIntoDB(req.params.id, req.body);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Product Updated Successfully",
+        data: result,
+    });
+}));
+const deleteProduct = (0, catchAsync_1.default)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield products_service_1.ProductService.deleteProductIntoDB(req.params.id);
+    (0, sendResponse_1.default)(res, {
+        statusCode: http_status_1.default.OK,
+        success: true,
+        message: "Product Deleted Successfully",
+        data: result,
+    });
+}));
 exports.ProductController = {
     CreateProduct,
     GetAllProduct,
     GetSingleProduct,
+    updateProduct,
+    deleteProduct,
 };

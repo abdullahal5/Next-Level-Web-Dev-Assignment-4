@@ -11,5 +11,7 @@ const Products_validation_1 = require("./Products.validation");
 const router = express_1.default.Router();
 router.post("/create-product", (0, validateRequest_1.default)(Products_validation_1.ProductValidation.productSchema), products_controller_1.ProductController.CreateProduct);
 router.get("/products", products_controller_1.ProductController.GetAllProduct);
-router.get("/product/:id", products_controller_1.ProductController.GetSingleProduct);
+router.get("/products/:id", products_controller_1.ProductController.GetSingleProduct);
+router.delete("/products/:id", products_controller_1.ProductController.deleteProduct);
+router.put("/products/:id", products_controller_1.ProductController.updateProduct);
 exports.ProductRoute = router;
