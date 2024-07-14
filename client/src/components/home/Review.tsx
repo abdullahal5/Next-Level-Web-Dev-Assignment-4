@@ -31,7 +31,7 @@ const Review = () => {
           {feedbackData?.map((feedback, index) => (
             <div
               key={index}
-              className={`bg-base-100 h-48 w-[350px] py-5 px-4 rounded-md border transition-transform duration-300 ${index === 1 ? "scale-110": "" }`}
+              className={`bg-base-100 h-48 lg:w-[350px] md:w-[350px] py-5 px-4 rounded-md border transition-transform duration-300 ${index === 1 ? "lg:scale-110": "" }`}
             >
               <div className="flex gap-4 items-center">
                 <img

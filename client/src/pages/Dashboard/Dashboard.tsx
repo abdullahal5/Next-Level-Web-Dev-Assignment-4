@@ -162,7 +162,7 @@ const Dashboard = () => {
       {isLoading ? (
         <Loading />
       ) : (
-        <>
+        <div className="px-2">
           <h1 className="text-3xl font-semibold text-center pt-5">Dashboard</h1>
           <p className="text-center text-gray-500 lg:mx-44 pt-2">
             Welcome to KeyNest Dashboard! <br /> Stay updated with your product
@@ -519,7 +519,7 @@ const Dashboard = () => {
               refetch={refetch}
             />
           )}
-        </>
+        </div>
       )}
     </>
   );

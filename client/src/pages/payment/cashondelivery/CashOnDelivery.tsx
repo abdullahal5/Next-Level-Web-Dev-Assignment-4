@@ -58,7 +58,7 @@ const CashOnDelivery = () => {
 
   return (
     <div className="mx-auto text-center mt-10">
-      <div className="border inline-block p-8 rounded-lg">
+      <div className="border inline-block lg:p-8 md:p-8 p-4 rounded-lg">
         <h1 className="text-3xl font-semibold text-center py-5">
           Cash on delivery
         </h1>

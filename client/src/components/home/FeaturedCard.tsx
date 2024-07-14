@@ -28,7 +28,7 @@ const FeaturedCard = () => {
             <Loading />
           ) : (
             <>
-              {data.data.length <= 0 ? (
+              {data?.data?.length <= 0 ? (
                 <p className="flex items-center justify-center h-screen col-span-3">
                   No Results Found
                 </p>

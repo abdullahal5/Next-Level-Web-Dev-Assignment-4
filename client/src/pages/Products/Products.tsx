@@ -73,8 +73,8 @@ const Products = () => {
           <p className="text-center py-5 text-lg">
             {data?.data?.length} result found
           </p>
-          <div className="mb-10 flex items-start gap-5">
-            <div className="w-80 p-4 border rounded-lg h-auto lg:block md:hidden hidden">
+          <div className="mb-10 flex lg:flex-row md:flex-col flex-col justify-center items-start gap-5">
+            <div className="w-80 mx-auto p-4 border rounded-lg h-auto">
               <div className="flex items-center justify-between">
                 <h1 className="text-3xl text-center ">Filter</h1>
                 <button
@@ -146,7 +146,7 @@ const Products = () => {
                 </form>
               </div>
             </div>
-            <div className="flex-1 rounded-lg h-auto">
+            <div className="flex-1 rounded-lg h-auto mx-auto">
               <div className="flex items-center justify-center">
                 <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5">
                   {data && data.data.length <= 0 ? (

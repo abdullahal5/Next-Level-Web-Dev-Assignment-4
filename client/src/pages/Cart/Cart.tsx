@@ -29,29 +29,27 @@ const Cart = () => {
 
   const isAnyProductZero = cart.some((item) => item.quantity === 0);
 
-  console.log(isAnyProductZero)
-
   return (
-    <div className="flex items-start gap-5 my-5">
-      <div className=" border flex-1 rounded-lg">
+    <div className="flex flex-col lg:flex-row justify-center items-start gap-5 my-5">
+      <div className="border lg:flex-1 rounded-lg mx-auto w-full overflow-x-auto">
         <div className="relative overflow-x-auto sm:rounded-lg m-5">
-          <table className="w-full text-sm rtl:text-right text-gray-500 dark:text-gray-400">
+          <table className="w-full text-sm text-gray-500 dark:text-gray-400">
             <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3">
                   ID
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  image
+                  Image
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  Product name
+                  Product Name
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Quantity
                 </th>
                 <th scope="col" className="px-6 py-3">
-                  PRICE
+                  Price
                 </th>
                 <th scope="col" className="px-6 py-3">
                   Actions
@@ -71,26 +69,17 @@ const Cart = () => {
                     key={item._id}
                     className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 text-center dark:hover:bg-gray-600"
                   >
-                    <td
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {item?._id.slice(-6)}
                     </td>
-                    <td
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       <img
                         className="w-12 h-12 object-cover rounded-full mx-auto"
                         src={item?.coverImage}
                         alt=""
                       />
                     </td>
-                    <td
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {item?.name}
                     </td>
                     <td className="px-6 py-4">
@@ -117,10 +106,7 @@ const Cart = () => {
                         </button>
                       </div>
                     </td>
-                    <td
-                      scope="row"
-                      className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-                    >
+                    <td className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                       {item?.orderPrice}
                     </td>
                     <td className="px-6 py-4">
@@ -140,8 +126,8 @@ const Cart = () => {
           </table>
         </div>
       </div>
-      <div>
-        <div className="border w-80 rounded-lg p-4">
+      <div className="mx-auto w-full lg:w-auto">
+        <div className="border w-full lg:w-80 rounded-lg p-4">
           <div className="flex items-center justify-between">
             <p className="text-lg font-semibold">Pricing Details</p>
             <p className="text-lg px-2 rounded-full border">{cart?.length}</p>
