@@ -23,7 +23,6 @@ type UpdateModalProps = {
   refetch: () => void;
 };
 
-
 const UpdateModal: React.FC<UpdateModalProps> = ({
   setUpdateModalVisible,
   productData,
@@ -51,6 +50,7 @@ const UpdateModal: React.FC<UpdateModalProps> = ({
   }, [productData.coverImage]);
 
   const handleUpdateValue = async (e: FormEvent<HTMLFormElement>) => {
+    const toastId = toast.loading("Please wait");
     e.preventDefault();
 
     const formData = new FormData(e.target as HTMLFormElement);
@@ -90,6 +90,7 @@ const UpdateModal: React.FC<UpdateModalProps> = ({
       }).unwrap();
 
       if (response.success) {
+        toast.dismiss(toastId);
         toast.success(response.message);
         setUpdateModalVisible(false);
         clearFile();
